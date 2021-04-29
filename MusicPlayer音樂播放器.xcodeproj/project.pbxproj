@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9A20AAFE263A47F0006CFD02 /* 千年-金志文 吉克隽逸.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 9A20AAFD263A47F0006CFD02 /* 千年-金志文 吉克隽逸.mp3 */; };
+		9A20AB01263A483D006CFD02 /* 涼涼-楊宗緯 張碧晨.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 9A20AB00263A483D006CFD02 /* 涼涼-楊宗緯 張碧晨.mp3 */; };
+		9A20AB0C263A6701006CFD02 /* album.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A20AB0B263A6701006CFD02 /* album.swift */; };
+		9A20AB12263A765C006CFD02 /* 渡紅塵-張碧晨.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 9A20AB10263A765C006CFD02 /* 渡紅塵-張碧晨.mp3 */; };
+		9A20AB13263A765C006CFD02 /* 嘆雲兮-鞠婧禕.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 9A20AB11263A765C006CFD02 /* 嘆雲兮-鞠婧禕.mp3 */; };
+		9A20AB17263A76B2006CFD02 /* 傲紅塵-尤長靖.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 9A20AB16263A76B2006CFD02 /* 傲紅塵-尤長靖.mp3 */; };
 		9AC85C02263951C300E88B22 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AC85C01263951C300E88B22 /* AppDelegate.swift */; };
 		9AC85C04263951C300E88B22 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AC85C03263951C300E88B22 /* SceneDelegate.swift */; };
 		9AC85C06263951C300E88B22 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AC85C05263951C300E88B22 /* ViewController.swift */; };
@@ -16,6 +22,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9A20AAFD263A47F0006CFD02 /* 千年-金志文 吉克隽逸.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "千年-金志文 吉克隽逸.mp3"; path = "../../../../../../../Downloads/千年-金志文 吉克隽逸.mp3"; sourceTree = "<group>"; };
+		9A20AB00263A483D006CFD02 /* 涼涼-楊宗緯 張碧晨.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "涼涼-楊宗緯 張碧晨.mp3"; sourceTree = "<group>"; };
+		9A20AB0B263A6701006CFD02 /* album.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = album.swift; sourceTree = "<group>"; };
+		9A20AB10263A765C006CFD02 /* 渡紅塵-張碧晨.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "渡紅塵-張碧晨.mp3"; sourceTree = "<group>"; };
+		9A20AB11263A765C006CFD02 /* 嘆雲兮-鞠婧禕.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "嘆雲兮-鞠婧禕.mp3"; sourceTree = "<group>"; };
+		9A20AB16263A76B2006CFD02 /* 傲紅塵-尤長靖.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "傲紅塵-尤長靖.mp3"; sourceTree = "<group>"; };
 		9AC85BFE263951C300E88B22 /* MusicPlayer音樂播放器.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MusicPlayer音樂播放器.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9AC85C01263951C300E88B22 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9AC85C03263951C300E88B22 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -56,6 +68,7 @@
 		9AC85C00263951C300E88B22 /* MusicPlayer音樂播放器 */ = {
 			isa = PBXGroup;
 			children = (
+				9A20AB0B263A6701006CFD02 /* album.swift */,
 				9AC85C01263951C300E88B22 /* AppDelegate.swift */,
 				9AC85C03263951C300E88B22 /* SceneDelegate.swift */,
 				9AC85C05263951C300E88B22 /* ViewController.swift */,
@@ -63,6 +76,11 @@
 				9AC85C0A263951C800E88B22 /* Assets.xcassets */,
 				9AC85C0C263951C800E88B22 /* LaunchScreen.storyboard */,
 				9AC85C0F263951C800E88B22 /* Info.plist */,
+				9A20AAFD263A47F0006CFD02 /* 千年-金志文 吉克隽逸.mp3 */,
+				9A20AB00263A483D006CFD02 /* 涼涼-楊宗緯 張碧晨.mp3 */,
+				9A20AB10263A765C006CFD02 /* 渡紅塵-張碧晨.mp3 */,
+				9A20AB11263A765C006CFD02 /* 嘆雲兮-鞠婧禕.mp3 */,
+				9A20AB16263A76B2006CFD02 /* 傲紅塵-尤長靖.mp3 */,
 			);
 			path = "MusicPlayer音樂播放器";
 			sourceTree = "<group>";
@@ -124,9 +142,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9A20AB01263A483D006CFD02 /* 涼涼-楊宗緯 張碧晨.mp3 in Resources */,
 				9AC85C0E263951C800E88B22 /* LaunchScreen.storyboard in Resources */,
 				9AC85C0B263951C800E88B22 /* Assets.xcassets in Resources */,
+				9A20AB17263A76B2006CFD02 /* 傲紅塵-尤長靖.mp3 in Resources */,
+				9A20AB13263A765C006CFD02 /* 嘆雲兮-鞠婧禕.mp3 in Resources */,
 				9AC85C09263951C300E88B22 /* Main.storyboard in Resources */,
+				9A20AAFE263A47F0006CFD02 /* 千年-金志文 吉克隽逸.mp3 in Resources */,
+				9A20AB12263A765C006CFD02 /* 渡紅塵-張碧晨.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -140,6 +163,7 @@
 				9AC85C06263951C300E88B22 /* ViewController.swift in Sources */,
 				9AC85C02263951C300E88B22 /* AppDelegate.swift in Sources */,
 				9AC85C04263951C300E88B22 /* SceneDelegate.swift in Sources */,
+				9A20AB0C263A6701006CFD02 /* album.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
