@@ -20,8 +20,13 @@ class ViewController: UIViewController {
     @IBOutlet weak var albumImage: UIImageView!
     // 播放/暫停按鈕
     @IBOutlet weak var controlButton: UIButton!
+    // 音量
+    @IBOutlet weak var volumeSlider: UISlider!
+    // 時間
+    @IBOutlet weak var nowTime: UILabel!
+    @IBOutlet weak var allTime: UILabel!
     
-    // 音樂資料庫 陣列
+    // album.swift 音樂資料庫 陣列
     var songArray:[album]! = [album]()
     // 播放索引（第幾首歌）
     var playIndex = 0
@@ -50,14 +55,13 @@ class ViewController: UIViewController {
         gradientLayer.locations = [0, 0.2]
         view.layer.insertSublayer(gradientLayer, at: 0)
         
-        // 定義音量UI
-        let volumeView = MPVolumeView(frame: CGRect(x: 90, y: 543, width: 230, height: 40))
-        volumeView.tintColor = UIColor(red:255 ,green:255 , blue:255 , alpha:1.0)
-        volumeView.showsRouteButton = false
-        view.addSubview(volumeView)
+
+        // 自訂Slider圖案
+        playbackSlider.setThumbImage(UIImage(named: "miniThumb"), for: .normal)
+        volumeSlider.setThumbImage(UIImage(named: "miniThumb"), for: .normal)
         
         //  音樂資料庫
-        songArray.append(album(albumName:"天乩之白蛇傳說 插曲",albumImage:"千年-金志文 吉克隽逸",songName:"千年-金志文吉克隽逸"))
+        songArray.append(album(albumName:"天乩之白蛇傳說 插曲",albumImage:"千年-金志文 吉克雋逸",songName:"千年-金志文 吉克雋逸"))
         songArray.append(album(albumName:"三生三世十里桃花 片尾曲",albumImage:"涼涼-楊宗緯 張碧晨",songName:"涼涼-楊宗緯 張碧晨"))
         songArray.append(album(albumName:"芸汐傳 片尾曲",albumImage:"嘆雲兮-鞠婧禕",songName:"嘆雲兮-鞠婧禕"))
         songArray.append(album(albumName:"網遊蜀山縹緲錄 主題曲",albumImage:"渡紅塵-張碧晨",songName:"渡紅塵-張碧晨"))
@@ -69,6 +73,8 @@ class ViewController: UIViewController {
         
         //  播放音樂
         playSong()
+        //執行現在播放的秒數
+        CurrentTime()
         
         //  播完後，繼續播下一首
         NotificationCenter.default.addObserver(forName: NSNotification.Name.AVPlayerItemDidPlayToEndTime, object: nil, queue: .main) { (_) in
@@ -112,6 +118,12 @@ class ViewController: UIViewController {
                 player.replaceCurrentItem(with: playerItem)
                 // 指定音量，這部分不太有作用，因為會按照使用者系統指定的音量來播放
                 player.volume = 0.5
+                looper = AVPlayerLooper(player: player, templateItem: playerItem)
+                
+                //總時間顯示
+                let duration = CMTimeGetSeconds(playerItem.asset.duration)
+                allTime.text = formatConversion(time: duration)
+                
 
                 //  重置slider和播放軌道
                 playbackSlider.setValue(Float(0), animated: true)
@@ -122,8 +134,8 @@ class ViewController: UIViewController {
                 player.play()
                 
                 //  更新slider時間value
-                let duration : CMTime = playerItem.asset.duration
-                let seconds : Float64 = CMTimeGetSeconds(duration)
+                let Duration : CMTime = playerItem.asset.duration
+                let seconds : Float64 = CMTimeGetSeconds(Duration)
                 playbackSlider.minimumValue = 0
                 playbackSlider.maximumValue = Float(seconds)
 
@@ -249,6 +261,46 @@ class ViewController: UIViewController {
             controlButton.setImage(pauseIcon, for: UIControl.State.normal)
         }
     }
+    
+    //現在播放的秒數
+    func CurrentTime(){
+        player.addPeriodicTimeObserver(forInterval: CMTimeMake(value: 1, timescale: 1), queue: DispatchQueue.main, using: { (CMTime) in
+            if self.player.currentItem?.status == .readyToPlay {
+                let currentTime = CMTimeGetSeconds(self.player.currentTime())
+                //讓Slider跟著連動
+                self.playbackSlider.value = Float(currentTime)
+                //文字更改
+                self.nowTime.text = self.formatConversion(time: currentTime)
+                self.allTime.text = "\(self.formatConversion(time: Float64(self.playbackSlider.maximumValue - self.playbackSlider.value)))"
+            }
+        })
+    }
+    // 秒數顯示
+    func formatConversion(time:Float64) -> String {
+        let songLength = Int(time)
+        let minutes = Int(songLength / 60) //為分鐘數
+        let seconds = Int(songLength % 60) //為秒數
+        var time = ""
+        if minutes < 10 {
+          time = "0\(minutes):"
+        } else {
+          time = "\(minutes)"
+        }
+        if seconds < 10 {
+          time += "0\(seconds)"
+        } else {
+          time += "\(seconds)"
+        }
+        return time
+    }
+    
+    // 音量
+    @IBAction func changeVolume(_ sender: UISlider) {
+        player.volume = sender.value
+    }
+    
+    //重複播放
+    
     
     
 }
